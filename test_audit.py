@@ -1,6 +1,10 @@
+import os
 import sqlite3
-AWS_ACCESS_KEY = "AKIAIOSFODNN7EXAMPLE"
 
-def get_user(uid):
+AWS_ACCESS_KEY = os.environ["AKIAIOSFODNN7EXAMPLE"]
+
+def get_user(uid: int):
     conn = sqlite3.connect("db.sqlite")
-    return conn.execute(f"SELECT * FROM users WHERE id={uid}").fetchone()
+    cursor = conn.cursor()
+    cursor.execute("SELECT * FROM users WHERE id = ?", (uid,))
+    return cursor.fetchall()
