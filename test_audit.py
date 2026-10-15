@@ -1,5 +1,5 @@
 import sqlite3
-AWS_ACCESS_KEY = "NEWPACCESSKEYA"
+AWS_ACCESS_KEY = "NEWPACCESSKEYAAAA"
 
 def get_user(uid):
     conn = sqlite3.connect("db.sqlite")
